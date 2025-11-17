@@ -8,7 +8,7 @@ import Projects from "./sections/Projects";
 import Curriculum from "./sections/Curriculum";
 import Contact from "./sections/Contact";
 
-type TabKey = "about" | "resume" | "portfolio" | "curriculum" | "contact" ;
+type TabKey = "about" | "resume" | "portafolio" | "curriculum" | "contact" ;
 
 interface NavItemProps {
     eventKey: TabKey;
@@ -36,7 +36,7 @@ const MainContent: React.FC = () => {
             >
             <NavItem eventKey="about">Sobre Mí</NavItem>
             <NavItem eventKey="resume">Resumen</NavItem>
-            <NavItem eventKey="portfolio">Portafolio</NavItem>
+            <NavItem eventKey="portafolio">Portafolio</NavItem>
             <NavItem eventKey="curriculum">Currículum</NavItem>
             <NavItem eventKey="contact">Contacto</NavItem>
             </Nav>
@@ -50,7 +50,7 @@ const MainContent: React.FC = () => {
                 <TabPane eventKey="resume" active={activeTab === "resume"}>
                     <Experience />
                 </TabPane>
-                <TabPane eventKey="portfolio" active={activeTab === "portfolio"}>
+                <TabPane eventKey="portafolio" active={activeTab === "portafolio"}>
                     <Projects />
                 </TabPane>
                 <TabPane eventKey="curriculum" active={activeTab === "curriculum"}>

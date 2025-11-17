@@ -26,8 +26,9 @@ const Datos: React.FC = () => {
         <div className="card-body p-4 text-center">
             {/* Foto */}
             <img
-            src="/public/perfil.png"
-            alt="Octavio Victorio"
+            // En tu código React (o CSS si es el caso)
+            src="/perfil.png" 
+            alt="Mi foto de perfil"
             className="rounded-circle mb-3 border border-secondary border-3 shadow"
             style={{
                 width: "200px",
