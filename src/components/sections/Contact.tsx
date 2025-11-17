@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_roj4tji'; 
-const TEMPLATE_ID = 'template_xws4yxo'; 
-const PUBLIC_KEY = 'zFtmrFk7ZxAjWthNw';
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID; 
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; 
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact: React.FC = () => {
     const form = useRef<HTMLFormElement>(null);
@@ -13,6 +13,12 @@ const Contact: React.FC = () => {
         e.preventDefault();
         
         if (form.current) {
+            if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+                console.error("Error: Las variables de entorno de EmailJS no están definidas. Revisa Vercel.");
+                setStatus('error');
+                return;
+            }
+            
             setStatus('sending');
             
             emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
